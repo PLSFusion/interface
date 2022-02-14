@@ -11,6 +11,7 @@ export const OPTIMISM_LIST = 'https://static.optimism.io/optimism.tokenlist.json
 const ROLL_LIST = 'https://app.tryroll.com/tokens.json'
 const SET_LIST = 'https://raw.githubusercontent.com/SetProtocol/uniswap-tokenlist/main/set.tokenlist.json'
 const WRAPPED_LIST = 'wrapped.tokensoft.eth'
+const SEMINA_LIST = 'https://api.hedron.pro/token-list'
 
 export const UNSUPPORTED_LIST_URLS: string[] = [BA_LIST]
 
@@ -29,6 +30,7 @@ const DEFAULT_LIST_OF_LISTS_TO_DISPLAY: string[] = [
   ROLL_LIST,
   ARBITRUM_LIST,
   OPTIMISM_LIST,
+  SEMINA_LIST,
 ]
 
 export const DEFAULT_LIST_OF_LISTS: string[] = [
@@ -37,4 +39,4 @@ export const DEFAULT_LIST_OF_LISTS: string[] = [
 ]
 
 // default lists to be 'active' aka searched across
-export const DEFAULT_ACTIVE_LIST_URLS: string[] = [UNI_LIST, GEMINI_LIST]
+export const DEFAULT_ACTIVE_LIST_URLS: string[] = [UNI_LIST, GEMINI_LIST, SEMINA_LIST]

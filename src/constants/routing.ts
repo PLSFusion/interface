@@ -12,6 +12,8 @@ import {
   FEI,
   FRAX,
   FXS,
+  HDRN,
+  HEX,
   nativeOnChain,
   renBTC,
   rETH2,
@@ -100,6 +102,8 @@ export const CUSTOM_BASES: { [chainId: number]: { [tokenAddress: string]: Token[
 export const COMMON_BASES: ChainCurrencyList = {
   [SupportedChainId.MAINNET]: [
     nativeOnChain(SupportedChainId.MAINNET),
+    HEX,
+    HDRN,
     DAI,
     USDC,
     USDT,
@@ -154,7 +158,15 @@ export const COMMON_BASES: ChainCurrencyList = {
 // used to construct the list of all pairs we consider by default in the frontend
 export const BASES_TO_TRACK_LIQUIDITY_FOR: ChainTokenList = {
   ...WRAPPED_NATIVE_CURRENCIES_ONLY,
-  [SupportedChainId.MAINNET]: [...WRAPPED_NATIVE_CURRENCIES_ONLY[SupportedChainId.MAINNET], DAI, USDC, USDT, WBTC],
+  [SupportedChainId.MAINNET]: [
+    ...WRAPPED_NATIVE_CURRENCIES_ONLY[SupportedChainId.MAINNET],
+    HEX,
+    HDRN,
+    DAI,
+    USDC,
+    USDT,
+    WBTC,
+  ],
 }
 export const PINNED_PAIRS: { readonly [chainId: number]: [Token, Token][] } = {
   [SupportedChainId.MAINNET]: [
