@@ -6,7 +6,7 @@ import { SupportedChainId } from './chains'
 export const HEX = new Token(SupportedChainId.MAINNET, '0x2b591e99afE9f32eAA6214f7B7629768c40Eeb39', 8, 'HEX', 'HEX')
 export const HDRN = new Token(
   SupportedChainId.MAINNET,
-  '0x9bE54759A6b2Ac59F342562013Dfa7E38AAaCC36',
+  '0x3819f64f282bf135d62168C1e513280dAF905e06',
   9,
   'HDRN',
   'Hedron'
