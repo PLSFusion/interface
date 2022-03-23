@@ -6,8 +6,9 @@ import { WrappedTokenInfo } from 'state/lists/wrappedTokenInfo'
 
 import EthereumLogo from '../../assets/images/ethereum-logo.png'
 import MaticLogo from '../../assets/svg/matic-token-icon.svg'
+import PulseLogo from '../../assets/svg/pulsechain_logo.svg'
 
-type Network = 'ethereum' | 'arbitrum' | 'optimism'
+type Network = 'ethereum' | 'arbitrum' | 'optimism' | 'pulsechain'
 
 function chainIdToNetworkName(networkId: SupportedChainId): Network {
   switch (networkId) {
@@ -17,6 +18,8 @@ function chainIdToNetworkName(networkId: SupportedChainId): Network {
       return 'arbitrum'
     case SupportedChainId.OPTIMISM:
       return 'optimism'
+    case SupportedChainId.PULSEV2B:
+      return 'pulsechain'
     default:
       return 'ethereum'
   }
@@ -27,6 +30,8 @@ function getNativeLogoURI(chainId: SupportedChainId = SupportedChainId.MAINNET):
     case SupportedChainId.POLYGON_MUMBAI:
     case SupportedChainId.POLYGON:
       return MaticLogo
+    case SupportedChainId.PULSEV2B:
+      return PulseLogo
     default:
       return EthereumLogo
   }

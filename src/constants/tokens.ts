@@ -324,6 +324,26 @@ class MaticNativeCurrency extends NativeCurrency {
   }
 }
 
+function isPulse(chainId: number): chainId is SupportedChainId.PULSEV2B {
+  return chainId === SupportedChainId.PULSEV2B
+}
+
+class PulseNativeCurrency extends NativeCurrency {
+  equals(other: Currency): boolean {
+    return other.isNative && other.chainId === this.chainId
+  }
+
+  get wrapped(): Token {
+    if (!isPulse(this.chainId)) throw new Error('Not pulse')
+    return WRAPPED_NATIVE_CURRENCY[this.chainId]
+  }
+
+  public constructor(chainId: number) {
+    if (!isPulse(chainId)) throw new Error('Not pulse')
+    super(chainId, 18, 'PLS', 'Pulse')
+  }
+}
+
 export class ExtendedEther extends Ether {
   public get wrapped(): Token {
     if (this.chainId in WRAPPED_NATIVE_CURRENCY) return WRAPPED_NATIVE_CURRENCY[this.chainId]
@@ -337,12 +357,13 @@ export class ExtendedEther extends Ether {
   }
 }
 
-const cachedNativeCurrency: { [chainId: number]: NativeCurrency } = {}
+//const cachedNativeCurrency: { [chainId: number]: NativeCurrency } = {}
 export function nativeOnChain(chainId: number): NativeCurrency {
-  return (
-    cachedNativeCurrency[chainId] ??
-    (cachedNativeCurrency[chainId] = isMatic(chainId)
-      ? new MaticNativeCurrency(chainId)
-      : ExtendedEther.onChain(chainId))
-  )
+  if (isMatic(chainId)) {
+    return new MaticNativeCurrency(chainId)
+  } else if (isPulse(chainId)) {
+    return new PulseNativeCurrency(chainId)
+  } else {
+    return ExtendedEther.onChain(chainId)
+  }
 }

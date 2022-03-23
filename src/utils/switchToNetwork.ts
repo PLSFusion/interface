@@ -30,6 +30,8 @@ function getRpcUrls(chainId: SupportedChainId): [string] {
       return ['https://polygon-rpc.com/']
     case SupportedChainId.POLYGON_MUMBAI:
       return ['https://rpc-endpoints.superfluid.dev/mumbai']
+    case SupportedChainId.PULSEV2B:
+      return ['https://rpc.v2b.testnet.pulsechain.com']
     default:
   }
   // Our API-keyed URLs will fail security checks when used with external wallets.
