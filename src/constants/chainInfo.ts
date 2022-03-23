@@ -2,6 +2,7 @@ import ethereumLogoUrl from 'assets/images/ethereum-logo.png'
 import arbitrumLogoUrl from 'assets/svg/arbitrum_logo.svg'
 import optimismLogoUrl from 'assets/svg/optimistic_ethereum.svg'
 import polygonMaticLogo from 'assets/svg/polygon-matic-logo.svg'
+import pulseChainLogo from 'assets/svg/pulsechain_logo.svg'
 import ms from 'ms.macro'
 
 import { SupportedChainId, SupportedL1ChainId, SupportedL2ChainId } from './chains'
@@ -166,5 +167,14 @@ export const CHAIN_INFO: ChainInfoMap = {
     label: 'Polygon Mumbai',
     logoUrl: polygonMaticLogo,
     nativeCurrency: { name: 'Polygon Mumbai Matic', symbol: 'mMATIC', decimals: 18 },
+  },
+  [SupportedChainId.PULSEV2B]: {
+    networkType: NetworkType.L1,
+    docs: 'https://docs.uniswap.org/',
+    explorer: 'https://scan.v2b.testnet.pulsechain.com/',
+    infoLink: 'https://info.uniswap.org/#/',
+    label: 'PulseChain V2B',
+    logoUrl: pulseChainLogo,
+    nativeCurrency: { name: 'Pulse', symbol: 'tPLS', decimals: 18 },
   },
 }

@@ -11,6 +11,20 @@ export const HDRN = new Token(
   'HDRN',
   'Hedron'
 )
+export const HEX_PULSEV2B = new Token(
+  SupportedChainId.PULSEV2B,
+  '0x2b591e99afE9f32eAA6214f7B7629768c40Eeb39',
+  8,
+  'HEX',
+  'HEX'
+)
+export const HDRN_PULSEV2B = new Token(
+  SupportedChainId.PULSEV2B,
+  '0x3819f64f282bf135d62168C1e513280dAF905e06',
+  9,
+  'HDRN',
+  'Hedron'
+)
 export const AMPL = new Token(
   SupportedChainId.MAINNET,
   '0xD46bA6D942050d489DBd938a2C909A5d5039A161',
@@ -20,6 +34,13 @@ export const AMPL = new Token(
 )
 export const DAI = new Token(
   SupportedChainId.MAINNET,
+  '0x6B175474E89094C44Da98b954EedeAC495271d0F',
+  18,
+  'DAI',
+  'Dai Stablecoin'
+)
+export const DAI_PULSEV2B = new Token(
+  SupportedChainId.PULSEV2B,
   '0x6B175474E89094C44Da98b954EedeAC495271d0F',
   18,
   'DAI',
@@ -41,6 +62,13 @@ export const DAI_OPTIMISM = new Token(
 )
 export const USDC = new Token(
   SupportedChainId.MAINNET,
+  '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48',
+  6,
+  'USDC',
+  'USD//C'
+)
+export const USDC_PULSEV2B = new Token(
+  SupportedChainId.PULSEV2B,
   '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48',
   6,
   'USDC',
@@ -90,6 +118,13 @@ export const USDC_OPTIMISM = new Token(
 )
 export const USDT = new Token(
   SupportedChainId.MAINNET,
+  '0xdAC17F958D2ee523a2206206994597C13D831ec7',
+  6,
+  'USDT',
+  'Tether USD'
+)
+export const USDT_PULSEV2B = new Token(
+  SupportedChainId.PULSEV2B,
   '0xdAC17F958D2ee523a2206206994597C13D831ec7',
   6,
   'USDT',
@@ -259,6 +294,13 @@ export const WRAPPED_NATIVE_CURRENCY: { [chainId: number]: Token } = {
     18,
     'WMATIC',
     'Wrapped MATIC'
+  ),
+  [SupportedChainId.PULSEV2B]: new Token(
+    SupportedChainId.PULSEV2B,
+    '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2',
+    18,
+    'WPLS',
+    'Wrapped Pulse'
   ),
 }
 

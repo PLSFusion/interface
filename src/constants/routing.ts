@@ -8,12 +8,15 @@ import {
   DAI_ARBITRUM_ONE,
   DAI_OPTIMISM,
   DAI_POLYGON,
+  DAI_PULSEV2B,
   ETH2X_FLI,
   FEI,
   FRAX,
   FXS,
   HDRN,
+  HDRN_PULSEV2B,
   HEX,
+  HEX_PULSEV2B,
   nativeOnChain,
   renBTC,
   rETH2,
@@ -24,10 +27,12 @@ import {
   USDC_ARBITRUM,
   USDC_OPTIMISM,
   USDC_POLYGON,
+  USDC_PULSEV2B,
   USDT,
   USDT_ARBITRUM_ONE,
   USDT_OPTIMISM,
   USDT_POLYGON,
+  USDT_PULSEV2B,
   WBTC,
   WBTC_ARBITRUM_ONE,
   WBTC_OPTIMISM,
@@ -53,6 +58,12 @@ const WRAPPED_NATIVE_CURRENCIES_ONLY: ChainTokenList = Object.fromEntries(
 export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
   ...WRAPPED_NATIVE_CURRENCIES_ONLY,
   [SupportedChainId.MAINNET]: [...WRAPPED_NATIVE_CURRENCIES_ONLY[SupportedChainId.MAINNET], DAI, USDC, USDT, WBTC],
+  [SupportedChainId.PULSEV2B]: [
+    ...WRAPPED_NATIVE_CURRENCIES_ONLY[SupportedChainId.PULSEV2B],
+    DAI_PULSEV2B,
+    USDC_PULSEV2B,
+    USDT_PULSEV2B,
+  ],
   [SupportedChainId.OPTIMISM]: [
     ...WRAPPED_NATIVE_CURRENCIES_ONLY[SupportedChainId.OPTIMISM],
     DAI_OPTIMISM,
@@ -153,6 +164,15 @@ export const COMMON_BASES: ChainCurrencyList = {
     WRAPPED_NATIVE_CURRENCY[SupportedChainId.POLYGON_MUMBAI],
     WETH_POLYGON_MUMBAI,
   ],
+  [SupportedChainId.PULSEV2B]: [
+    nativeOnChain(SupportedChainId.PULSEV2B),
+    HEX_PULSEV2B,
+    HDRN_PULSEV2B,
+    DAI_PULSEV2B,
+    USDC_PULSEV2B,
+    USDT_PULSEV2B,
+    WRAPPED_NATIVE_CURRENCY[SupportedChainId.PULSEV2B],
+  ],
 }
 
 // used to construct the list of all pairs we consider by default in the frontend
@@ -166,6 +186,14 @@ export const BASES_TO_TRACK_LIQUIDITY_FOR: ChainTokenList = {
     USDC,
     USDT,
     WBTC,
+  ],
+  [SupportedChainId.PULSEV2B]: [
+    ...WRAPPED_NATIVE_CURRENCIES_ONLY[SupportedChainId.PULSEV2B],
+    HEX_PULSEV2B,
+    HDRN_PULSEV2B,
+    DAI_PULSEV2B,
+    USDC_PULSEV2B,
+    USDT_PULSEV2B,
   ],
 }
 export const PINNED_PAIRS: { readonly [chainId: number]: [Token, Token][] } = {
@@ -182,5 +210,19 @@ export const PINNED_PAIRS: { readonly [chainId: number]: [Token, Token][] } = {
     ],
     [USDC, USDT],
     [DAI, USDT],
+  ],
+  [SupportedChainId.PULSEV2B]: [
+    [
+      new Token(SupportedChainId.PULSEV2B, '0x5d3a536E4D6DbD6114cc1Ead35777bAB948E3643', 8, 'cDAI', 'Compound Dai'),
+      new Token(
+        SupportedChainId.PULSEV2B,
+        '0x39AA39c021dfbaE8faC545936693aC917d5E7563',
+        8,
+        'cUSDC',
+        'Compound USD Coin'
+      ),
+    ],
+    [USDC_PULSEV2B, USDT_PULSEV2B],
+    [DAI_PULSEV2B, USDT_PULSEV2B],
   ],
 }

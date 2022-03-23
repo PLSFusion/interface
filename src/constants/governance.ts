@@ -13,6 +13,12 @@ export const COMMON_CONTRACT_NAMES: Record<number, { [address: string]: string }
     [GOVERNANCE_ALPHA_V0_ADDRESSES[SupportedChainId.MAINNET]]: 'Governance (V0)',
     [GOVERNANCE_ALPHA_V1_ADDRESSES[SupportedChainId.MAINNET]]: 'Governance',
   },
+  [SupportedChainId.PULSEV2B]: {
+    [UNI_ADDRESS[SupportedChainId.PULSEV2B]]: 'UNI',
+    [TIMELOCK_ADDRESS[SupportedChainId.PULSEV2B]]: 'Timelock',
+    [GOVERNANCE_ALPHA_V0_ADDRESSES[SupportedChainId.PULSEV2B]]: 'Governance (V0)',
+    [GOVERNANCE_ALPHA_V1_ADDRESSES[SupportedChainId.PULSEV2B]]: 'Governance',
+  },
 }
 
 export const DEFAULT_AVERAGE_BLOCK_TIME_IN_SECS = 13
